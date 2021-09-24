@@ -31,29 +31,29 @@ if (empty($_POST["terms"])) {
     $terms = $_POST["terms"];
 }
 
-$EmailTo = "jasirtour@gmail.com";
+$EmailTo = "sul3iman@mkmarketing.group";
 $Subject = "New quote request from call me form";
 
 // prepare email body text
 $Body = "";
 $Body .= "Name: ";
-$Body .= $name;
+$Body .= $lname;
 $Body .= "\n";
 $Body .= "Phone: ";
-$Body .= $phone;
+$Body .= $lphone;
 $Body .= "\n";
 $Body .= "Email: ";
-$Body .= $email;
+$Body .= $lemail;
 $Body .= "\n";
 $Body .= "Package: ";
-$Body .= $select;
+$Body .= $lselect;
 $Body .= "\n";
 $Body .= "Terms: ";
-$Body .= $terms;
+$Body .= $lterms;
 $Body .= "\n";
 
 // send email
-$success = mail($EmailTo, $Subject, $Body, "From:".$email);
+$success = mail($EmailTo, $Subject, $Body, "From:".$lemail);
 // redirect to success page
 if ($success && $errorMSG == ""){
    echo "success";

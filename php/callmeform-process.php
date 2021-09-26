@@ -37,23 +37,32 @@ $Subject = "New quote request from call me form";
 // prepare email body text
 $Body = "";
 $Body .= "Name: ";
-$Body .= $lname;
+$Body .= $name;
 $Body .= "\n";
 $Body .= "Phone: ";
-$Body .= $lphone;
+$Body .= $phone;
+$Body .= "\n";
+$Body .= "Passport: ";
+$Body .= $passport;
+$Body .= "\n";
+$Body .= "Nationality: ";
+$Body .= $nation;
+$Body .= "\n";
+$Body .= "Address: ";
+$Body .= $address;
 $Body .= "\n";
 $Body .= "Email: ";
-$Body .= $lemail;
+$Body .= $email;
 $Body .= "\n";
 $Body .= "Package: ";
-$Body .= $lselect;
+$Body .= $select;
 $Body .= "\n";
 $Body .= "Terms: ";
-$Body .= $lterms;
+$Body .= $terms;
 $Body .= "\n";
 
 // send email
-$success = mail($EmailTo, $Subject, $Body, "From:".$lemail);
+$success = mail($EmailTo, $Subject, $Body, "From:".$email);
 // redirect to success page
 if ($success && $errorMSG == ""){
    echo "success";

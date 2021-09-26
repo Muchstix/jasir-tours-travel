@@ -4,48 +4,56 @@ $errorMSG = "";
 if (empty($_POST["name"])) {
     $errorMSG = "Name is required ";
 } else {
-    $cname = $_POST["name"];
+    $name = $_POST["name"];
+}
+
+if (empty($_POST["phone"])) {
+    $errorMSG = "Phone is required ";
+} else {
+    $phone = $_POST["phone"];
 }
 
 if (empty($_POST["email"])) {
     $errorMSG = "Email is required ";
 } else {
-    $cemail = $_POST["email"];
+    $email = $_POST["email"];
 }
 
-if (empty($_POST["message"])) {
-    $errorMSG = "Message is required ";
+if (empty($_POST["select"])) {
+    $errorMSG = "Select is required ";
 } else {
-    $cmessage = $_POST["message"];
+    $select = $_POST["select"];
 }
 
 if (empty($_POST["terms"])) {
     $errorMSG = "Terms is required ";
 } else {
-    $cterms = $_POST["terms"];
+    $terms = $_POST["terms"];
 }
 
 $EmailTo = "jasirtour@gmail.com";
-$Subject = "New message from contact form";
+$Subject = "New quote request from call me form";
 
 // prepare email body text
 $Body = "";
 $Body .= "Name: ";
-$Body .= $cname;
+$Body .= $name;
+$Body .= "\n";
+$Body .= "Phone: ";
+$Body .= $phone;
 $Body .= "\n";
 $Body .= "Email: ";
-$Body .= $cemail;
+$Body .= $email;
 $Body .= "\n";
-$Body .= "Message: ";
-$Body .= $cmessage;
+$Body .= "Package: ";
+$Body .= $select;
 $Body .= "\n";
 $Body .= "Terms: ";
-$Body .= $cterms;
+$Body .= $terms;
 $Body .= "\n";
 
 // send email
-$success = mail($EmailTo, $Subject, $Body, "From:".$cemail);
-
+$success = mail($EmailTo, $Subject, $Body, "From:".$email);
 // redirect to success page
 if ($success && $errorMSG == ""){
    echo "success";

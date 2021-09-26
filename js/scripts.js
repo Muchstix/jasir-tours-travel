@@ -226,7 +226,366 @@
         $("#lmsgSubmit").removeClass().addClass(msgClasses).text(msg);
     }
 
+ /* Visa Processing Form */
+    $("#visaProcessingForm").validator().on("submit", function(event) {
+    	if (event.isDefaultPrevented()) {
+            // handle the invalid form...
+            vformError();
+            vsubmitMSG(false, "Please fill all fields!");
+        } else {
+            // everything looks good!
+            event.preventDefault();
+            vsubmitForm();
+        }
+    });
 
+    function vsubmitForm() {
+        // initiate variables with form content
+		var name = $("#vname").val();
+		var phone = $("#vphone").val();
+		var passport = $("#vpassport").val();
+        var nationality = $("#vnation").val();
+        var address = $("#vaddress").val();
+        var email = $("#vemail").val();
+		var select = $("#vselect").val();
+        var terms = $("#vterms").val();
+        
+        $.ajax({
+            type: "POST",
+            url: "php/visa-process.php",
+            data: "name=" + name + "&phone=" + phone + "&email=" + passport + "&passport" + nationality + "&nation" + address + "&address" + email + "&select=" + select + "&terms=" + terms, 
+            success: function(text) {
+                if (text == "success") {
+                    vformSuccess();
+                } else {
+                    vformError();
+                    vsubmitMSG(false, text);
+                }
+            }
+        });
+	}
+
+    function vformSuccess() {
+        $("#visaProcessingForm")[0].reset();
+        vsubmitMSG(true, "Request Submitted!");
+        $("input").removeClass('notEmpty'); // resets the field label after submission
+    }
+
+    function vformError() {
+        $("#visaProcessingForm").removeClass().addClass('shake animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+            $(this).removeClass();
+        });
+	}
+
+    function vsubmitMSG(valid, msg) {
+        if (valid) {
+            var msgClasses = "h3 text-center tada animated";
+        } else {
+            var msgClasses = "h3 text-center";
+        }
+        $("#vmsgSubmit").removeClass().addClass(msgClasses).text(msg);
+    }
+
+    /* trip planning process Form */
+
+    $("#tripPlanningForm").validator().on("submit", function(event) {
+
+    	if (event.isDefaultPrevented()) {
+            // handle the invalid form...
+            lformError();
+            lsubmitMSG(false, "Please fill all fields!");
+        } else {
+            // everything looks good!
+            event.preventDefault();
+            lsubmitForm();
+        }
+    });
+
+    function lsubmitForm() {
+        // initiate variables with form content
+		var name = $("#lname").val();
+		var phone = $("#lphone").val();
+		var email = $("#lemail").val();
+		var select = $("#lselect").val();
+        var terms = $("#lterms").val();
+        
+        $.ajax({
+            type: "POST",
+            url: "php/tripplanning-process.php",
+            data: "name=" + name + "&phone=" + phone + "&email=" + email + "&select=" + select + "&terms=" + terms, 
+            success: function(text) {
+                if (text == "success") {
+                    lformSuccess();
+                } else {
+                    lformError();
+                    lsubmitMSG(false, text);
+                }
+            }
+        });
+	}
+
+    function lformSuccess() {
+        $("#tripPlanningForm")[0].reset();
+        lsubmitMSG(true, "Request Submitted!");
+        $("input").removeClass('notEmpty'); // resets the field label after submission
+    }
+
+    function lformError() {
+        $("#tripPlanningForm").removeClass().addClass('shake animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+            $(this).removeClass();
+        });
+	}
+
+    function lsubmitMSG(valid, msg) {
+        if (valid) {
+            var msgClasses = "h3 text-center tada animated";
+        } else {
+            var msgClasses = "h3 text-center";
+        }
+        $("#lmsgSubmit").removeClass().addClass(msgClasses).text(msg);
+    }
+
+    /* tour guiding process Form */
+    $("#tourGuideForm").validator().on("submit", function(event) {
+    	if (event.isDefaultPrevented()) {
+            // handle the invalid form...
+            lformError();
+            lsubmitMSG(false, "Please fill all fields!");
+        } else {
+            // everything looks good!
+            event.preventDefault();
+            lsubmitForm();
+        }
+    });
+
+    function lsubmitForm() {
+        // initiate variables with form content
+		var name = $("#lname").val();
+		var phone = $("#lphone").val();
+		var email = $("#lemail").val();
+		var select = $("#lselect").val();
+        var terms = $("#lterms").val();
+        
+        $.ajax({
+            type: "POST",
+            url: "php/tourguiding-process.php",
+            data: "name=" + name + "&phone=" + phone + "&email=" + email + "&select=" + select + "&terms=" + terms, 
+            success: function(text) {
+                if (text == "success") {
+                    lformSuccess();
+                } else {
+                    lformError();
+                    lsubmitMSG(false, text);
+                }
+            }
+        });
+	}
+
+    function lformSuccess() {
+        $("#tourGuideForm")[0].reset();
+        lsubmitMSG(true, "Request Submitted!");
+        $("input").removeClass('notEmpty'); // resets the field label after submission
+    }
+
+    function lformError() {
+        $("#tourGuideForm").removeClass().addClass('shake animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+            $(this).removeClass();
+        });
+	}
+
+    function lsubmitMSG(valid, msg) {
+        if (valid) {
+            var msgClasses = "h3 text-center tada animated";
+        } else {
+            var msgClasses = "h3 text-center";
+        }
+        $("#lmsgSubmit").removeClass().addClass(msgClasses).text(msg);
+    }
+ 
+    /* passport processing Form */
+    $("#passportForm").validator().on("submit", function(event) {
+    	if (event.isDefaultPrevented()) {
+            // handle the invalid form...
+            lformError();
+            lsubmitMSG(false, "Please fill all fields!");
+        } else {
+            // everything looks good!
+            event.preventDefault();
+            lsubmitForm();
+        }
+    });
+
+    function lsubmitForm() {
+        // initiate variables with form content
+		var name = $("#lname").val();
+		var phone = $("#lphone").val();
+		var email = $("#lemail").val();
+		var select = $("#lselect").val();
+        var terms = $("#lterms").val();
+        
+        $.ajax({
+            type: "POST",
+            url: "php/callmeform-process.php",
+            data: "name=" + name + "&phone=" + phone + "&email=" + email + "&select=" + select + "&terms=" + terms, 
+            success: function(text) {
+                if (text == "success") {
+                    lformSuccess();
+                } else {
+                    lformError();
+                    lsubmitMSG(false, text);
+                }
+            }
+        });
+	}
+
+    function lformSuccess() {
+        $("#passportForm")[0].reset();
+        lsubmitMSG(true, "Request Submitted!");
+        $("input").removeClass('notEmpty'); // resets the field label after submission
+    }
+
+    function lformError() {
+        $("#passportForm").removeClass().addClass('shake animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+            $(this).removeClass();
+        });
+	}
+
+    function lsubmitMSG(valid, msg) {
+        if (valid) {
+            var msgClasses = "h3 text-center tada animated";
+        } else {
+            var msgClasses = "h3 text-center";
+        }
+        $("#lmsgSubmit").removeClass().addClass(msgClasses).text(msg);
+    }
+    
+    /* hotel booking Form */
+    $("#hotelForm").validator().on("submit", function(event) {
+    	if (event.isDefaultPrevented()) {
+            // handle the invalid form...
+            hformError();
+            hsubmitMSG(false, "Please fill all fields!");
+        } else {
+            // everything looks good!
+            event.preventDefault();
+            hsubmitForm();
+        }
+    });
+
+    function hsubmitForm() {
+        // initiate variables with form content
+		var name = $("#lhname").val();
+		var phone = $("#hphone").val();
+		var passport = $("#hpassport").val();
+        var nationality = $("#hnation").val();
+        var address = $("#haddress").val();
+		var destination = $("#hdestination").val();
+		var departure = $("#hdeparture").val();
+        var departureTime = $("#hdepartureTime").val();
+		var email = $("#hemail").val();
+		var select = $("#hselect").val();
+        var guestSelect = $("#hselectGuest").val();
+        var terms = $("#hterms").val();
+        
+        $.ajax({
+            type: "POST",
+            url: "php/hotelbooking-process.php",
+            data: "name=" + name + "&phone=" + phone + "&passport" + passport + "&nationality" + nationality + "&address" + address + "&destination" + destination + "&departure" + departure + "&departureTime" + departureTime + "&email=" + email + "&select=" + select + "&guestSelect" + guestSelect + "&terms=" + terms, 
+            success: function(text) {
+                if (text == "success") {
+                    hformSuccess();
+                } else {
+                    hformError();
+                    hsubmitMSG(false, text);
+                }
+            }
+        });
+	}
+
+    function hformSuccess() {
+        $("#hotelForm")[0].reset();
+        hsubmitMSG(true, "Request Submitted!");
+        $("input").removeClass('notEmpty'); // resets the field label after submission
+    }
+
+    function hformError() {
+        $("#hotelForm").removeClass().addClass('shake animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+            $(this).removeClass();
+        });
+	}
+
+    function hsubmitMSG(valid, msg) {
+        if (valid) {
+            var msgClasses = "h3 text-center tada animated";
+        } else {
+            var msgClasses = "h3 text-center";
+        }
+        $("#hmsgSubmit").removeClass().addClass(msgClasses).text(msg);
+    }
+    
+   
+    /* air ticketing Form */
+    $("#airTicketForm").validator().on("submit", function(event) {
+    	if (event.isDefaultPrevented()) {
+            // handle the invalid form...
+            gformError();
+            gsubmitMSG(false, "Please fill all fields!");
+        } else {
+            // everything looks good!
+            event.preventDefault();
+            gsubmitForm();
+        }
+    });
+
+    function lsubmitForm() {
+        // initiate variables with form content
+		var name = $("#gname").val();
+		var phone = $("#gphone").val();
+		var passport = $("#gpassport").val();
+        var nationality = $("#gnation").val();
+        var destination = $("#gdestination").val();
+		var departure = $("#gdeparture").val();
+        var departureTime = $("gdepartureTime")
+		var email = $("#gemail").val();
+		var select = $("#gselect").val();
+        var terms = $("#gterms").val();
+        
+        $.ajax({
+            type: "POST",
+            url: "php/airticketing-process.php",
+            data: "name=" + name + "&phone=" + phone + "&passport" + passport + "&nationality" + nationality + "&destination" + destination + "&departure" + departure + "&departureTime" + departureTime + "&email=" + email + "&select=" + select + "&terms=" + terms, 
+            success: function(text) {
+                if (text == "success") {
+                    gformSuccess();
+                } else {
+                    gformError();
+                    gsubmitMSG(false, text);
+                }
+            }
+        });
+	}
+
+    function gformSuccess() {
+        $("#airTicketForm")[0].reset();
+        gsubmitMSG(true, "Request Submitted!");
+        $("input").removeClass('notEmpty'); // resets the field label after submission
+    }
+
+    function gformError() {
+        $("#airTicketForm").removeClass().addClass('shake animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+            $(this).removeClass();
+        });
+	}
+
+    function gsubmitMSG(valid, msg) {
+        if (valid) {
+            var msgClasses = "h3 text-center tada animated";
+        } else {
+            var msgClasses = "h3 text-center";
+        }
+        $("#gmsgSubmit").removeClass().addClass(msgClasses).text(msg);
+    }
+    
     /* Contact Form */
     $("#contactForm").validator().on("submit", function(event) {
     	if (event.isDefaultPrevented()) {

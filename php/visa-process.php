@@ -13,6 +13,24 @@ if (empty($_POST["phone"])) {
     $phone = $_POST["phone"];
 }
 
+if (empty($_POST["passport"])) {
+    $errorMSG = "Passport is required ";
+} else {
+    $passport = $_POST["passport"];
+}
+
+if (empty($_POST["nationality"])) {
+    $errorMSG = "Nationality is required ";
+} else {
+    $nationality = $_POST["nationality"];
+}
+
+if (empty($_POST["address"])) {
+    $errorMSG = "Address is required ";
+} else {
+    $address = $_POST["address"];
+}
+
 if (empty($_POST["email"])) {
     $errorMSG = "Email is required ";
 } else {
@@ -48,14 +66,8 @@ $Body .= "\n";
 $Body .= "Nationality: ";
 $Body .= $nation;
 $Body .= "\n";
-$Body .= "Destination: ";
-$Body .= $destination;
-$Body .= "\n";
-$Body .= "Departure: ";
-$Body .= $departure;
-$Body .= "\n";
-$Body .= "Departure Time: ";
-$Body .= $departureTime;
+$Body .= "Address: ";
+$Body .= $address;
 $Body .= "\n";
 $Body .= "Email: ";
 $Body .= $email;

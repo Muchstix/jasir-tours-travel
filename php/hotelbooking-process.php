@@ -42,16 +42,33 @@ $Body .= "\n";
 $Body .= "Phone: ";
 $Body .= $phone;
 $Body .= "\n";
+$Body .= "Passport: ";
+$Body .= $passport;
+$Body .= "\n";
+$Body .= "Nationality: ";
+$Body .= $nation;
+$Body .= "\n";
+$Body .= "Destination: ";
+$Body .= $destination;
+$Body .= "\n";
+$Body .= "Departure: ";
+$Body .= $departure;
+$Body .= "\n";
+$Body .= "Departure Time: ";
+$Body .= $departureTime;
+$Body .= "\n";
 $Body .= "Email: ";
 $Body .= $email;
 $Body .= "\n";
-$Body .= "Package: ";
+$Body .= "Room Type: ";
 $Body .= $select;
+$Body .= "\n";
+$Body .= "Number Of Guests: ";
+$Body .= $guestSelect;
 $Body .= "\n";
 $Body .= "Terms: ";
 $Body .= $terms;
 $Body .= "\n";
-
 // send email
 $success = mail($EmailTo, $Subject, $Body, "From:".$email);
 // redirect to success page
